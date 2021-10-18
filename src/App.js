@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/navbar/navbar';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import Home from './components/pages/home';
 import Services from './components/pages/services';
 import Products from './components/pages/products';
@@ -14,11 +14,13 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
+        <Route exact path="/trvl/">
+          <Redirect to="/" />
+      </Route>
           <Route path='/' exact component={Home} />
           <Route path='/services' component={Services} />
           <Route path='/products' component={Products} />
-          <Route path='/sign-up' component={SignUp} />
-  
+          <Route path='/sign-up' component={SignUp} />  
         </Switch>
       </Router>
     </>
